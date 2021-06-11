@@ -1,1 +1,2 @@
-export { AblyChatComponent } from "./component/AblyChatComponent";
+import AblyChatComponent from "./component/AblyChatComponent";
+export default AblyC;
