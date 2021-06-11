@@ -1,0 +1,12 @@
+body {
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+  }
+  
+main {
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+  }

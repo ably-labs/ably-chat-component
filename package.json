@@ -1,0 +1,50 @@
+{
+  "name": "ably-chat-component",
+  "version": "1.0.0",
+  "description": "Real time chat from Ably - just add your own API key!",
+  "main": "build/index.js",
+  "exports": { 
+    "import": "./build/index.js" 
+  },
+  "type": "module",
+  "module": "./build/index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "snowpack dev --watch --polyfill-node",
+    "build": "npm run ci",
+    "ci": "npx snowpack build",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ably-labs/ably-chat-component.git"
+  },
+  "keywords": [
+    "chat",
+    "realtime",
+    "websockets",
+    "ably"
+  ],
+  "author": "Jo Franchetti, Ably",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ably-labs/ably-chat-component.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@types/jest": "^26.0.15",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "snowpack": "latest",
+    "typescript": "^4.0.3"
+  },
+  "homepage": "https://github.com/thisisjofrank/ablycomponent#readme",
+  "dependencies": {
+    "ably": "^1.2.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

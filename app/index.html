@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ably Chat WebComponent Demo</title>
+        <link rel="stylesheet" href="index.css"></link>
+
+        <script lang="text/javascript" src="https://cdn.ably.io/lib/ably.min-1.js"></script>
+        <script src="component/AblyChatComponent.js" type="module"></script>
+    </head>
+    <body>
+        <main>
+            
+            <ably-chat 
+                data-disabled-api-key="you-can-put-your-key-here-but-please-don't" 
+                data-get-token-url="https://ppwcfol4k7.execute-api.us-east-2.amazonaws.com/default/createTokenRequest"
+            ></ably-chat>
+
+            <!---
+            
+            The component can be configured through setting attributes.
+
+            While you're developing or testing, you can set your API key using `data-api-key`.
+                
+                <ably-chat data-api-key="your-api-key-here-for-dev"></ably-chat>
+
+            This is INSECURE. It makes your PRIVATE API key available to the public and you should
+            never do this in a production system. It is, however, useful for testing.
+
+            When you're deploying to production you'll want to use `createTokenRequest` to create
+            a temporary authentication token. Typically this will involve storing your API key in a
+            server side component, and exposing a URL for the Ably SDK to call.
+
+            You can configure this by setting the `data-get-token-url` attribute.
+
+                <ably-chat data-get-token-url="https://my-token-api.com/createTokenRequest"></ably-chat>
+            
+            This is the recommended way to include Ably API keys in front-end components.
+
+            -->
+
+        </main>
+    </body>
+</html>
