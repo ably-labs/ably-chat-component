@@ -1,2 +1,1 @@
-import AblyChatComponent from "./component/AblyChatComponent";
-export default AblyChatComponent;
+export * from "./component/AblyChatComponent";
