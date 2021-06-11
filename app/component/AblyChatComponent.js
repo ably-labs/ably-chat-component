@@ -4,7 +4,7 @@ import AblyBaseComponent from "./AblyBaseComponent";
 // It's a demo of how all the "Ably logic" can exist in a base component
 // that is built upon, in this case, by a chat web component.
 
-class AblyChat extends AblyBaseComponent {
+export default class AblyChat extends AblyBaseComponent {
 
     static get observedAttributes() {
         return ['messages'];
