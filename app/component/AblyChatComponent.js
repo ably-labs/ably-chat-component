@@ -27,7 +27,7 @@ export default class AblyChat extends AblyBaseComponent {
         // This is the web component version of reacts "componentDidMount"
         super.connectedCallback();
 
-        const subscribeChannelAttr = this.getAttribute("subscribe-channel");
+        const subscribeChannelAttr = this.getAttribute("data-subscribe-channel");
         const subscribeChannel = subscribeChannelAttr ? subscribeChannelAttr : 'chat';
         super.subscribe(subscribeChannel, 'chat-message', (message) => {
             this.onAblyMessageReceived(message);
@@ -72,7 +72,7 @@ export default class AblyChat extends AblyBaseComponent {
     }
 
     sendChatMessage(messageText) {
-        const publishChannelAttr = this.getAttribute("publish-channel");
+        const publishChannelAttr = this.getAttribute("data-publish-channel");
         const publishChannel = publishChannelAttr ? publishChannelAttr : 'chat';
         super.publish(publishChannel, { name: "chat-message", data: messageText });
         this.inputBox.value = "";
