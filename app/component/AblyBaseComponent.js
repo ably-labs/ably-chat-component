@@ -15,7 +15,12 @@ export default class AblyBaseComponent extends HTMLElement {
     connectToAblyChannel() {
         const ablyApiKey = this.getAttribute("data-api-key");
         const ablyTokenUrl = this.getAttribute("data-get-token-url");
-        const ablyConfig = ablyApiKey ? ablyApiKey : { authUrl: ablyTokenUrl };
+        let ablyConfig = {};
+        if (ablyApiKey) {
+          ablyConfig['key'] = ablyApiKey;
+        } else {
+          ablyConfig['authUrl'] = ablyTokenUrl;
+        }
 
         this.ably = new Ably.Realtime(ablyConfig);
         this.subscribedChannels = [];

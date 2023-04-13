@@ -89,9 +89,16 @@ export default class AblyChat extends AblyBaseComponent {
         }
     }
 
-    formatMessages(messages) {            
+    formatMessages(messages) {
         const messageMarkup = messages.map((message, index) => {
-            const author = message.connectionId === this.ably.connection.id ? "me" : "other";
+            const clientId = message.clientId;
+            let author;
+            if (clientId) {
+                author = this.ably.auth.clientId === clientId ? "me" : clientId;
+            } else {
+                author = message.connectionId === this.ably.connection.id ? "me" : "other";
+            }
+
             return `<span class="message" data-author=${author}>${message.data}</span>`;
         });
 
