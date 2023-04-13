@@ -39,6 +39,8 @@ You will want to use `Ably Token Authentication` for production.
 
 The component can be configured through setting attributes.
 
+### Authentication
+
 While you're developing or testing, you can set your API key using `data-api-key`.
 
 ```html
@@ -59,6 +61,18 @@ You can configure this by setting the `data-get-token-url` attribute.
 ```
 
 This is the recommended way to include Ably API keys in front-end components.
+
+### Specifying channel names
+
+You can specify which channels to use for publishing and for subscribing:
+
+```html
+<ably-chat data-publish-channel="chat" data-subscribe-channel="chat"></ably-chat>
+```
+
+If either of these are not specified, it will default to `chat`. Usually you will want both the publish and subscribe channels to be the same, to enable clients to talk directly to one another. In some scenarios you may want to have some form of processing occur on the message before being sent to other clients.
+
+An example of this would be having a server perform filtering on messages before making them available to other clients. You could publish the messages to `chat-output`, which the server is subscribed to. The server could filter out any banned words, and then send a message to `chat-input` for all the other clients to then see the result.
 
 ## Setting up token authentication
 
