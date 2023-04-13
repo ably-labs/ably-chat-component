@@ -26,7 +26,10 @@ export default class AblyChat extends AblyBaseComponent {
     connectedCallback() {
         // This is the web component version of reacts "componentDidMount"
         super.connectedCallback();
-        super.subscribe('chat', 'chat-message', (message) => {
+
+        const subscribeChannelAttr = this.getAttribute("subscribe-channel");
+        const subscribeChannel = subscribeChannelAttr ? subscribeChannelAttr : 'chat';
+        super.subscribe(subscribeChannel, 'chat-message', (message) => {
             this.onAblyMessageReceived(message);
         });
 
@@ -62,14 +65,16 @@ export default class AblyChat extends AblyBaseComponent {
         });        
     }
 
-    onAblyMessageReceived(message) {        
+    onAblyMessageReceived(message) {
         const history = this.messages.slice(-199);
         const updatedMessages = [...history, message];
         this.messages = updatedMessages; 
     }
 
     sendChatMessage(messageText) {
-        super.publish("chat", { name: "chat-message", data: messageText });
+        const publishChannelAttr = this.getAttribute("publish-channel");
+        const publishChannel = publishChannelAttr ? publishChannelAttr : 'chat';
+        super.publish(publishChannel, { name: "chat-message", data: messageText });
         this.inputBox.value = "";
         this.inputBox.focus();
     }

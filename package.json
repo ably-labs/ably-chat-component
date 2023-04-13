@@ -1,6 +1,6 @@
 {
   "name": "ably-chat-component",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Real time chat from Ably - just add your own API key!",
   "main": "build/index.js",
   "exports": { 
